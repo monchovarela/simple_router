@@ -1,0 +1,4 @@
+{
+	"title": "<?php echo $args['title'];?>",
+	"description": "<?php echo $args['description'];?>"
+}
