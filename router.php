@@ -1,5 +1,8 @@
 <?php
 
+
+namespace Router;
+
 /**
  *  <pre>
  *    <code>
@@ -137,13 +140,7 @@ class Router
         curl_close($handle);
 
         /* If the document has loaded successfully without any redirection or error */
-        if ($httpCode >= 200 && $httpCode < 300)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        if ($httpCode >= 200 && $httpCode < 300) return false;
+        else return true;
     }
 }

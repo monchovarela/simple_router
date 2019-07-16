@@ -1,0 +1,61 @@
+
+    {* this is a comment only view here *}
+    <h1>{$page.title|upper}</h1>
+    <hr>
+
+
+    {* Other Template posibilities *}
+
+
+    {* Vars *}
+    {* ---------------------------------- *}
+    <p><b>Upercase</b> <code>{$page.title|upper}</code></p>
+    <p><b>Lowercase</b> <code>{$page.title|lower}</code></p>
+    <p><b>htmlspecialchars</b> <code>{$page.title|e}</code></p>
+    <p><b>html_entity_decode</b> <code>{$page.title|parse}</code></p>
+    <p><b>md5 page.title</b> <code>{$page.title|md5}</code></p>
+    <p><b>sha1 page.title</b> <code>{$page.title|sha1}</code></p>
+    {* ---------------------------------- *}
+ 
+
+
+    {* Create var *}
+    {* ---------------------------------- *}
+    {? $test = 50*2 ?}
+    <p><b>Custom var </b> <code>{?= $test ?}</code></p>
+    {* ---------------------------------- *}
+  
+
+
+    {* Loop *}
+    {* ---------------------------------- *}
+    <p> <b>Loop numbers</b> <br>
+    {? $numbers = [1,2,3,4,5] ?}
+    {Loop: $numbers as $number}
+        {$number}
+    {/Loop}
+    </p>
+    <p><b>Multiply of 2</b> <br>
+    {Loop: $numbers as $number}
+        {?= $number*2 ?}
+    {/Loop}
+    </p>
+    {* ---------------------------------- *}
+
+
+
+    {* Conditionals *}
+    {* ---------------------------------- *}
+    {If: is_array($numbers)}
+        The number key 1 = value {$numbers[1]}
+    {/If}
+
+    {If: $page.title == "hello"}
+        <p>The page is Hello </p>
+    {Elseif: $page.title == "blog"}
+        <p>The page is Blog</p>
+    {Else}
+        <p>page.title == "another"</p>
+    {/If}
+
+    {* ---------------------------------- *}

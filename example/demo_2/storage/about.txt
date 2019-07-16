@@ -1,0 +1,7 @@
+
+{* this is a comment only view here *}
+<h1>{$page.title|upper}</h1>
+<hr>
+
+
+{* Other Template posibilities *}

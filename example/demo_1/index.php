@@ -1,10 +1,12 @@
 <?php
 
-// Get root dir
+
 define('ROOT', rtrim(dirname(__FILE__), '\\/'));
+// Get root dir
+
 
 // include router
-include '../router.php';
+include '../../router.php';
 
 // ------------------------------------------------------
 //                Utils functions

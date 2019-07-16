@@ -1,0 +1,82 @@
+<style>
+
+    .navigation {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+    }
+
+    .navigation li a,
+    .navigation li span {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    .navigation li {
+      position: relative;
+      display: inline-block;
+    }
+
+    .navigation li:hover{
+        background: #464646;
+    }
+    .navigation li:hover ul{
+        display: block;
+    }
+    .navigation ul {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 5px 6px 0px #dcdcdc;
+        padding: 0;
+        z-index: 2;
+        top: 3.5em;
+        left: 0;
+        overflow: hidden;
+    }
+    .navigation ul li {
+        float: left;
+        display: block;
+        width: 100%;
+    }
+    .navigation ul li a{
+        display: block;
+        color: black;
+        text-align: left;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .navigation ul li a:hover{
+        color:white;
+    }
+
+</style>
+
+<ul class="navigation">
+    {Loop: $links as $item}
+        {If: $item.name }
+            <li>
+                <a href="{$site_url}/{$item.url}">
+                    {$item.name|upper}
+                </a>
+                {If: !empty($item.child) }
+                    <ul>
+                    {Loop: $item.child as $subitem}
+                        <li>
+                            <a href="{$site_url}/{$item.url}/{$subitem.url}">
+                                {$subitem.name|upper}
+                            </a>
+                        </li>
+                    {/Loop}
+                    </ul>
+                {/If}
+                {Else}
+                    <a href="{$site_url}/{$item.url}">{$item.name|upper}</a>
+                {/If} 
+            </li>
+    {/Loop}
+</ul>
